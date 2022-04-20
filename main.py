@@ -22,9 +22,10 @@ def main():
         script, task, data_input = sys.argv
         if task.lower() == 'encode':
             make_qr_code(data_input).save('output.png')
-            print(f"Generated QR code, saved to output.png")
+            print("Generated QR code, saved to output.png")
         elif task.lower() == 'decode':
-            print(decode_qr_code(data_input))
+            raw_data = decode_qr_code(data_input)  # list object, example in README.md
+            print(raw_data[0].data.decode('utf-8'))
         else:
             print("Invalid task  - please use 'encode' or 'decode'")
     except ValueError:
