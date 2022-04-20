@@ -14,8 +14,7 @@ Uses qrcode and pyzbar libraries to encode/decode QR codes in Python.
 This QR code contains the word 'Test'. QR codes are automatically scaled relative to the length of bytes.
 
 ### Decoding a QR code
-Calling `decode_qr_code()` on the image path returns the following data:  
-```[Decoded(data=b'Test', type='QRCODE', rect=Rect(left=40, top=40, width=210, height=210), polygon=[Point(x=40, y=40), Point(x=40, y=250), Point(x=250, y=250), Point(x=250, y=40)], quality=1, orientation='UP')]```
+Calling `decode_qr_code()` on the image path returns a list object containing the QR code data (in bytes) and metadata. By calling the `data.decode()` method we can encode it with UTF-8 or ASCII.
 
 #### Todo
 * Encode bytes returned from decoded QR code into a string, return to user.
