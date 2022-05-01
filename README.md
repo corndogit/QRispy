@@ -15,8 +15,8 @@ The qr_codec library can be run directly with the following parameters:
 * For `decode`, `input_data` would be path to an image file containing QR code to read.
 
 ## Examples
-###Encoding a string to QR code  
 
+###Encoding a string to QR code
 ![QR code](https://i.imgur.com/MrNDhWh.png)  
 This QR code contains the word 'Test'. QR codes are automatically scaled relative to the length of bytes.
 
