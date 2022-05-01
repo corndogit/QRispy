@@ -15,11 +15,11 @@ The qr_codec library can be run directly with the following parameters:
 * For `decode`, `input_data` would be path to an image file containing QR code to read.
 
 ## Examples
-###Encoding a string to QR code
+###Encoding a string to QR code  
 ![QR code](https://i.imgur.com/MrNDhWh.png)  
 This QR code contains the word 'Test'. QR codes are automatically scaled relative to the length of bytes.
 
-### Decoding a QR code
+### Decoding a QR code  
 Calling `decode_qr_code()` on the image path returns a list object containing the QR code data (in bytes) and metadata. By calling the `data.decode()` method we can encode it with UTF-8 or ASCII.
 
 #### Todo
