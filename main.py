@@ -8,8 +8,9 @@ def main():
     # Window
     window = tk.Tk()
     window.title("QRispy")
-    canvas = tk.Canvas(window, width=700, height=350)
-    canvas.grid(columnspan=2, rowspan=2)
+    window.resizable(False, False)
+    frame = tk.Frame(window, width=700, height=350)
+    frame.grid(columnspan=2, rowspan=2)
 
     # Title
     title = ttk.Label(window)
@@ -25,20 +26,20 @@ def main():
     browse_input.grid(column=0, row=0, sticky='NE', pady=75, padx=68)
 
     # QR code display
-    img_qr = Image.open('output.png').resize((270, 270))
+    img_qr = Image.open('main_logo.png').resize((270, 270))
     img_qr = ImageTk.PhotoImage(img_qr)
     img_qr_label = ttk.Label(image=img_qr)
     img_qr_label.image = img_qr
     img_qr_label.grid(column=1, row=0)
 
     # radio buttons
-    mode = tk.StringVar()
-    subtitle = ttk.Label(window, text="Mode:")
-    subtitle.grid(column=0, row=1, sticky='NW', padx=25)
-    encode = ttk.Radiobutton(window, text="Encode", value='encode')
-    decode = ttk.Radiobutton(window, text="Decode", value='decode')
-    encode.grid(column=0, row=1, sticky='NW', padx=25, pady=25)
-    decode.grid(column=0, row=1, sticky='NW', padx=125, pady=25)
+    # mode = tk.StringVar()
+    # subtitle = ttk.Label(window, text="Mode:")
+    # subtitle.grid(column=0, row=1, sticky='NW', padx=25)
+    # encode = ttk.Radiobutton(window, text="Encode", value='encode')
+    # decode = ttk.Radiobutton(window, text="Decode", value='decode')
+    # encode.grid(column=0, row=1, sticky='NW', padx=25, pady=25)
+    # decode.grid(column=0, row=1, sticky='NW', padx=125, pady=25)
 
     window.mainloop()
 
