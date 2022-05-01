@@ -60,6 +60,25 @@ class DecodeFrame(ttk.Frame):
         title = ttk.Label(self, text=mode)
         title.grid(column=0, row=0, sticky='NW', padx=25, pady=10)
 
+        # Inputs
+        def get_file_to_decode():
+            file = fd.askopenfilename(
+                title='Open a file',
+                initialdir='/',
+                filetypes=(('QR code to decode', '*.png'),
+                           ('All files', '*.*'))
+            )
+            if file:
+                decoded_data = decode_qr_code(file)
+                output_file = open('output.txt', 'w')
+                output_file.write(decoded_data)
+                output_file.close()
+
+        browse_input = ttk.Button(self, text="Convert from file...", command=lambda: get_file_to_decode())
+        browse_input.grid(column=0, row=0, sticky='NW', pady=55, padx=24)
+
+        self.grid(column=0, row=0, padx=5, pady=5, sticky="nsew")
+
 
 class ControlFrame(ttk.LabelFrame):
     def __init__(self, container):
