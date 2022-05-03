@@ -13,7 +13,10 @@ def make_qr_code(data: str):
 def decode_qr_code(data):
     """| Finds QR code in image and decodes it using pyzbar library"""
     decode_qr = decode(Image.open(data))  # PIL.PngImagePlugin.PngImageFile
-    return decode_qr[0].data.decode('utf-8')
+    try:
+        return decode_qr[0].data.decode('utf-8')
+    except IndexError:
+        return 'Unable to read QR code'
 
 
 def main():

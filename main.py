@@ -1,6 +1,8 @@
+import textwrap
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
+from tkinter.scrolledtext import ScrolledText
 import tkinter.messagebox
 from PIL import Image, ImageTk
 from qr_codec import make_qr_code, decode_qr_code
@@ -73,9 +75,31 @@ class DecodeFrame(ttk.Frame):
                 output_file = open('output.txt', 'w')
                 output_file.write(decoded_data)
                 output_file.close()
+                return decoded_data
 
-        browse_input = ttk.Button(self, text="Convert from file...", command=lambda: get_file_to_decode())
-        browse_input.grid(column=0, row=0, sticky='NW', pady=55, padx=24)
+        def change_text(text):
+            decoded_string = get_file_to_decode()
+            if decoded_string:
+                try:
+                    text.delete('1.0', 'end')
+                    text.insert('1.0', decoded_string)
+                except IndexError:
+                    text.insert('1.0', decoded_string)
+
+        browse_input = ttk.Button(self, text="Convert from file...", command=lambda: change_text(text_box))
+        browse_input.grid(column=0, row=0, sticky='NW', pady=40, padx=24)
+
+        # decoded text
+        text_box = ScrolledText(self, width=55, height=16)
+        text_box.grid(column=1, row=0, sticky='E', padx=60)
+        text_box_contents = textwrap.dedent("""
+        Convert a QR code image to text
+        
+        Tips:
+        * Make sure the QR code is clearly legible and in focus
+        * Make sure the QR code is on a light background
+        """)
+        text_box.insert('1.0', text_box_contents)
 
         self.grid(column=0, row=0, padx=5, pady=5, sticky="nsew")
 
@@ -123,7 +147,7 @@ class App(tk.Tk):
 
         self.title('QRispy')
         self.geometry('700x350')
-        self.resizable(False, False)
+        # self.resizable(False, False)
 
 
 if __name__ == '__main__':
