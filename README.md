@@ -4,9 +4,16 @@ A GUI interface that uses qrcode and pyzbar libraries to encode/decode QR codes 
 ## Usage
 QRispy can be used as either with a GUI or in CLI
 
+### Requirements  
+* Python 3.9 or later
+* The qrcodes, pyzbar and pillow packages
+
 ### GUI
-Currently, only generating QR codes is supported in the GUI version. You can either enter some text directly into the entry box or select a plaintext file to read text from. The generated QR code is saved automatically as 'output.png'
-![GUI preview](https://corndog.s-ul.eu/d6Y0V6bk.png)
+Currently, generating and decoding QR codes is supported in the GUI version. You can either enter some text directly into the entry box or select a plaintext file to read text from. The generated QR code is saved automatically as 'output.png'. 
+QR codes can be decoded from images or screenshots where clearly visible and on a light background, although this hasn't been tested with camera photos. The decoded contents are displayed and saved to 'output.txt'.  
+
+![GUI preview 1](https://corndog.s-ul.eu/xyBGtsCg.png)  
+![GUI preview 2](https://corndog.s-ul.eu/Hgwqtm67.png)
 ### Terminal
 The qr_codec library can be run directly with the following parameters:  
 `qr_codec.py <encode/decode> <input_data>`
