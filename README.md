@@ -23,7 +23,7 @@ The qr_codec library can be run directly with the following parameters:
 
 ## Examples
 
-###Encoding a string to QR code
+### Encoding a string to QR code
 ![QR code](https://i.imgur.com/MrNDhWh.png)  
 This QR code contains the word 'Test'. QR codes are automatically scaled relative to the length of bytes.
 
