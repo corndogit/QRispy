@@ -31,7 +31,7 @@ This QR code contains the word 'Test'. QR codes are automatically scaled relativ
 Calling `decode_qr_code()` on the image path returns a list object containing the QR code data (in bytes) and metadata. By calling the `data.decode()` method we can encode it with UTF-8 or ASCII.
 
 #### Todo
-* Add GUI to decode QR codes
+* Write first-time setup script for installing dependencies 
 * Implement style options for QR code supported by the qrcode library
 * Add format options for saving (.PNG or .SVG)
 
